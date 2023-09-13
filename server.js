@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGO_URI, {
     useUnifiedTopology: true
 });
 mongoose.connection.once("open", () => {
-    console.log("We up!")
+    console.log("Live!")
 })
 
 app.set("view engine", 'jsx')
@@ -22,11 +22,6 @@ app.engine("jsx", jsxViewEngine())
 
 app.use(express.urlencoded({extended: false}))
 
-////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////
-
-
-//Index 
 app.get("/flights", async (req, res) => {
     try {
     const foundflights = await flights.find({})
@@ -37,12 +32,10 @@ app.get("/flights", async (req, res) => {
 })
 
 
-  //New 
 app.get("/flights/new", (req, res) => {
 res.render("New")
 })
 
-  //Create 
 app.post("/flights", async (req, res) => {
     try {
     const createdflight = await flight.create(req.body)
@@ -54,5 +47,5 @@ app.post("/flights", async (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`I hear you: ${PORT}`);
+    console.log(`Live on: ${PORT}`);
 });
