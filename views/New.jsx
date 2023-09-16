@@ -1,19 +1,24 @@
-import React, { Component } from 'react'
+const React = require("react")
 
-export default class New extends Component {
-render() {
+class New extends React.Component {
+  render() {
     return (
-    <div>
-        <h1>
-            Add New Flight
-        </h1>
-        <form action="/flights" method="POST">
-            Airline <input type="text" name="airline" /><br />
-            Flight Number <input type="number" name="flightNo" /><br />
-            Departure <input type="datetime-local" name="departs" /><br />
-            <input type="submit" value="Submit New flight" />
+      <div>
+        <h1>New Flight Page</h1>
+
+
+        <form action="/flight" method="POST">
+          Airline: <input type="text"  name="airline" /> <br />
+          FlightNo: <input type="number" name="flightNo" /> <br />
+          Departs: < input type="text" name="depart"  /> <br />
+        <input type="submit" value="Create Flight" />
         </form>
-    </div>
+        <nav>
+          <a href="/flight">Back</a>
+        </nav>
+      </div>
     )
+  }
 }
-}
+
+module.exports = New
